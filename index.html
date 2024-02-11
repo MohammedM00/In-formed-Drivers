@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideal Car Profile</title>
+    <style>
+        .header {
+            text-align: center;
+        }
+        .logo {
+            width: 50px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="cars.jpg" alt="Car Finders Inc. Logo">
+        <h1>Ideal Car Profile</h1>
+    </div>
+
+    <form id="carProfileForm">
+        <fieldset>
+            <legend>Car Information</legend>
+            <label for="manufacturer">Manufacturer:</label>
+            <select name="manufacturer" id="manufacturer">
+                <option value="Toyota">Toyota</option>
+                <option value="Honda">Honda</option>
+                <option value="Ford">Ford</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Mazda">Chevrolet</option>
+                <!-- Add more options as needed -->
+            </select>
+            <br><br>
+
+            <label for="colour">Colour:</label>
+            <input type="color" id="colour" name="colour">
+            <br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Drive Options</legend>
+            <input type="checkbox" id="fourWheel" name="driveOptions" value="4 Wheel">
+            <label for="fourWheel">4 Wheel</label><br>
+            <input type="checkbox" id="allWheel" name="driveOptions" value="All Wheel">
+            <label for="allWheel">All Wheel</label><br>
+            <input type="checkbox" id="allWheel" name="driveOptions" value="V4">
+            <label for="V4">V4</label><br>
+            <input type="checkbox" id="allWheel" name="driveOptions" value="V6">
+            <label for="V6">V6</label><br>
+            <!-- Add more drive options as needed -->
+            <br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Additional Information</legend>
+            <label for="license">License:</label>
+            <input type="text" id="license" name="license">
+            <br><br>
+
+            <label for="comments">Comments:</label><br>
+            <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+            <br><br>
+
+            <label for="category1">Category 1:</label>
+            <input type="text" id="category1" name="category1">
+            <br><br>
+
+            <label for="category2">Category 2:</label>
+            <input type="text" id="category2" name="category2">
+            <br><br>
+            <!-- Add more categories as needed -->
+        </fieldset>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("carProfileForm");
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const formData = new FormData(form);
+                const formDataObject = {};
+                formData.forEach(function(value, key){
+                    formDataObject[key] = value;
+                });
+                console.log(formDataObject);
+                // Here you can save the form data using AJAX, fetch API, etc.
+                // For demonstration purposes, let's log it to the console
+            });
+        });
+    </script>
+</body>
+</html>
